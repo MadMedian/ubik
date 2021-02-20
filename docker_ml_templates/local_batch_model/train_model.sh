@@ -1,1 +1,1 @@
-docker run --entrypoint python --rm --name local-batch-model local-batch-model:latest run.py
+docker run --entrypoint python --rm --name local-batch-model local-batch-model:latest train.py
