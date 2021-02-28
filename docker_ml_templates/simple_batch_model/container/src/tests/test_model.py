@@ -6,7 +6,8 @@ import numpy as np
 
 
 def create_dataset(n_rows=1000, n_feats=10, pos_loc=2.0, neg_loc=0.0,
-                   pos_scale=3.0, neg_scale=3.0):
+                   pos_scale=3.0, neg_scale=3.0, random_state=1):
+    np.random.seed(random_state)
     X_pos = np.random.normal(pos_loc, pos_scale, size=(n_rows, n_feats))
     X_neg = np.random.normal(neg_loc, neg_scale, size=(n_rows, n_feats))
     X = np.vstack([X_pos, X_neg])
@@ -17,7 +18,7 @@ def create_dataset(n_rows=1000, n_feats=10, pos_loc=2.0, neg_loc=0.0,
 class MyTestCase(unittest.TestCase):
     def setUp(self):
         self.random_state = 1
-        self.filepath = './src/tests/model.joblib'
+        self.filepath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'model.joblib')
 
     def test_model(self):
         unit = RandomForestWithFeatureSelection(random_state=self.random_state, n_estimators=10, top_k=8)

@@ -59,7 +59,7 @@ class RandomForestWithFeatureSelection(object):
             key = metric.__name__
             value = metric(y, y_pred)
             eval_report[key] = value
-            print(f"{key} \t : {value}")
+            print(f"{key[:-6]:>17} : {value:.3f}")
         return eval_report
 
     def save(self, filepath):

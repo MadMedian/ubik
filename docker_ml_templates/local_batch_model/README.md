@@ -1,1 +1,0 @@
-```docker pull python:3.8.8-slim```

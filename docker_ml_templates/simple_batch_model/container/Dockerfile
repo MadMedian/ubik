@@ -14,3 +14,4 @@ ENV PATH="/batch-model/src:${PATH}"
 
 COPY src /batch-model/src
 WORKDIR /batch-model/src
+RUN mkdir data
